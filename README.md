@@ -1,6 +1,6 @@
 # Crypto Advisor
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0fd1b691-142e-4754-9051-0900f0efc906/deploy-status)](https://app.netlify.com/sites/crypto-advisor/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0fd1b691-142e-4754-9051-0900f0efc906/deploy-status)](https://crypto-advisor.netlify.app)
 
 A react application that uses real-time market data from binance and coinbase to generate exchange based recommendations for buying/selling Bitcoin and Ethereum.
 
