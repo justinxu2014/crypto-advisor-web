@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { socket } from "../socketio/socket";
+import MarketTable from "./MarketTable";
+import RecTable from "./RecTable";
 
 const Home = () => {
   const [binanceETHBuyPrice, setBinanceETHBuyPrice] = useState(0);
@@ -10,6 +12,37 @@ const Home = () => {
   const [coinbaseETHSellPrice, setCoinbaseETHSellPrice] = useState(0);
   const [coinbaseBTCBuyPrice, setCoinbaseBTCBuyPrice] = useState(0);
   const [coinbaseBTCSellPrice, setCoinbaseBTCSellPrice] = useState(0);
+
+  const tableCategories = ["BTC", "ETH"];
+  const tableContent = [
+    [
+      "Binance",
+      binanceBTCBuyPrice,
+      binanceBTCSellPrice,
+      binanceETHBuyPrice,
+      binanceETHSellPrice,
+    ],
+
+    [
+      "Coinbase",
+      coinbaseBTCBuyPrice,
+      coinbaseBTCSellPrice,
+      coinbaseETHBuyPrice,
+      coinbaseETHSellPrice,
+    ],
+  ];
+  const RecTableContent = [
+    [
+      "BTC",
+      binanceBTCBuyPrice <= coinbaseBTCBuyPrice ? "Binance" : "Coinbase",
+      binanceBTCSellPrice >= coinbaseBTCSellPrice ? "Binance" : "Coinbase",
+    ],
+    [
+      "ETH",
+      binanceETHBuyPrice <= coinbaseETHBuyPrice ? "Binance" : "Coinbase",
+      binanceETHSellPrice >= coinbaseETHSellPrice ? "Binance" : "Coinbase",
+    ],
+  ];
 
   useEffect(() => {
     socket.on("update:binance", (data) => {
@@ -31,65 +64,31 @@ const Home = () => {
       }
     });
   }, []);
+
   return (
-    <div style={{ margin: "10px" }}>
-      <div style={{ display: "flex" }}>
-        <div style={{ margin: "10px" }}>
-          <h1>Binance</h1>
-          <h2>ETH</h2>
-          <div>
-            buy: ${binanceETHBuyPrice}
-            <br />
-            sell: ${binanceETHSellPrice}
-          </div>
-          <h2>BTC</h2>
-          buy: ${binanceBTCBuyPrice} <br />
-          sell: ${binanceBTCSellPrice}
-        </div>
-        <div style={{ margin: "10px" }}>
-          <h1>Coinbase</h1>
-          <h2>ETH</h2>
-          <div>
-            buy: {coinbaseETHBuyPrice} <br />
-            sell: {coinbaseETHSellPrice}
-          </div>
-          <h2>BTC</h2>
-          buy: {coinbaseBTCBuyPrice} <br />
-          sell: {coinbaseBTCSellPrice}
-        </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        margin: "10px",
+      }}
+    >
+      <h1> Crypto Advisor</h1>
+      <div
+        style={{ display: "flex", justifyContent: "center", margin: "25px" }}
+      >
+        <RecTable content={RecTableContent} />
       </div>
-      <div>
-        <h1>Recommendations</h1>
-        <div style={{ display: "flex" }}>
-          <div style={{ margin: "10px" }}>
-            <h2>ETH</h2>
-            <div>
-              Buy:{" "}
-              {binanceETHBuyPrice <= coinbaseETHBuyPrice
-                ? "Binance"
-                : "Coinbase"}
-              <br />
-              Sell:{" "}
-              {binanceETHSellPrice >= coinbaseETHSellPrice
-                ? "Binance"
-                : "Coinbase"}
-            </div>
-          </div>
-          <div style={{ margin: "10px" }}>
-            <h2>BTC</h2>
-            <div>
-              Buy:{" "}
-              {binanceBTCBuyPrice <= coinbaseBTCBuyPrice
-                ? "Binance"
-                : "Coinbase"}
-              <br />
-              Sell:{" "}
-              {binanceBTCSellPrice >= coinbaseBTCSellPrice
-                ? "Binance"
-                : "Coinbase"}
-            </div>
-          </div>
-        </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "100vw",
+          margin: "25px",
+        }}
+      >
+        <MarketTable categories={tableCategories} content={tableContent} />
       </div>
     </div>
   );
