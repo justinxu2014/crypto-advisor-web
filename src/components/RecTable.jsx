@@ -6,20 +6,17 @@ const RecTable = ({ content }) => {
         borderCollapse: "collapse",
         textAlign: "center",
         tableLayout: "fixed",
-        minwidth: "100%",
+        minWidth: "240px",
+        width: "100%",
       }}
     >
       <thead>
-        <tr>
+        <tr style={{ backgroundColor: "#6002ee", color: "#FAFAFA" }}>
           <th style={{ padding: "5px" }} colSpan="3">
             Recommendations
           </th>
         </tr>
-        <tr
-          style={{
-            border: "1px solid black",
-          }}
-        >
+        <tr style={{}}>
           <th style={{ border: "1px solid black" }}>Symbol</th>
           <th style={{ border: "1px solid black" }}>Buy</th>
           <th style={{ border: "1px solid black" }}>Sell</th>

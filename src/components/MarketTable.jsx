@@ -6,10 +6,12 @@ const MarketTable = ({ categories, content }) => {
         borderCollapse: "collapse",
         textAlign: "center",
         tableLayout: "fixed",
+        width: "100%",
+        minWidth: "490px",
       }}
     >
       <thead>
-        <tr>
+        <tr style={{ backgroundColor: "#6002ee", color: "#FAFAFA" }}>
           <th style={{ padding: "5px" }} colSpan={categories.length * 2 + 1}>
             Market Prices
           </th>

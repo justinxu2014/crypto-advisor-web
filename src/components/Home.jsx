@@ -71,12 +71,18 @@ const Home = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        margin: "10px",
+        padding: "25px",
+        height: "100vh",
       }}
     >
       <h1> Crypto Advisor</h1>
       <div
-        style={{ display: "flex", justifyContent: "center", margin: "25px" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          width: "80vw",
+          margin: "25px",
+        }}
       >
         <RecTable content={RecTableContent} />
       </div>
@@ -84,7 +90,7 @@ const Home = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          width: "100vw",
+          width: "80vw",
           margin: "25px",
         }}
       >
