@@ -71,11 +71,13 @@ const Home = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: "25px",
+        padding: "0px 25px 0px 25px",
         height: "100vh",
       }}
     >
-      <h1> Crypto Advisor</h1>
+      <div style={{ marginTop: "25px" }}>
+        <h1> Crypto Advisor</h1>
+      </div>
       <div
         style={{
           display: "flex",
