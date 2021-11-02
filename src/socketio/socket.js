@@ -10,6 +10,10 @@ const connectSocket = () => {
   socket.connect();
 };
 
+const disconnectSocket = () => {
+  socket.disconnect();
+};
+
 socket.on("connect", () => {
   console.log("connected: ", socket.id);
 });
@@ -18,4 +22,4 @@ socket.on("disconnect", () => {
   console.log("disconnected: ", socket.io);
 });
 
-export { socket, connectSocket };
+export { socket, connectSocket, disconnectSocket };

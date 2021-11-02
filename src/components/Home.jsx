@@ -45,7 +45,7 @@ const Home = () => {
     ],
   ];
 
-  useEffect(() => {
+  const initBinanceHandler = () => {
     socket.on("update:binance", (data) => {
       if (data.symbol === "ETHBUSD") {
         setBinanceETHBuyPrice(data.buyPrice);
@@ -55,6 +55,8 @@ const Home = () => {
         setBinanceBTCSellPrice(data.sellPrice);
       }
     });
+  };
+  const initCoinbaseHandler = () => {
     socket.on("update:coinbase", (data) => {
       if (data.symbol === "ETH-USD") {
         setCoinbaseETHBuyPrice(data.buyPrice);
@@ -64,6 +66,11 @@ const Home = () => {
         setCoinbaseBTCSellPrice(data.sellPrice);
       }
     });
+  };
+
+  useEffect(() => {
+    initBinanceHandler();
+    initCoinbaseHandler();
   }, []);
 
   return (

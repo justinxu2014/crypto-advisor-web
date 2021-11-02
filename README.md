@@ -4,6 +4,45 @@
 
 A react application that uses real-time market data from binance and coinbase to generate exchange based recommendations for buying/selling Bitcoin and Ethereum.
 
+## Local Development Setup Guide
+
+1. Install dependencies using `yarn` CLI command.
+2. Start the app using `yarn start` CLI command.
+
+## Deployment Guide:
+
+1. Create production build using `yarn build` CLI command.
+2. Deployment:
+   1. Local Deployment: Serve production build locally using `yarn serve` CLI command.
+   2. Hosting Service Deployment:
+      1. Connect repository to hosting service.
+      2. Set build command to `yarn build`
+      3. Set publish directory to `build`
+      4. Deploy Application
+
+## Repository Breakdown
+
+- `/`
+
+  - `index.js`\
+    Starting point of application.
+  - `app.js`\
+    First component of application. Routing would be setup here if required.
+
+- `/components`
+
+  - `Home.jsx`\
+    Home page of application.
+  - `MarketTable.js`\
+    Table component for displaying market prices.
+  - `RecTable.js`\
+    Table component for displaying buying/selling recommendations.
+
+- `/socketio`
+
+  - `socket.js`\
+    Socket.io connection to API is initialized here.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -30,6 +69,17 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn serve`
+
+Runs the production build of app.\
+Open [http://localhost:5000](http://localhost:5000) to view it in the browser.\
+Run `yarn build` if build directory does not exist.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn eject`
 
