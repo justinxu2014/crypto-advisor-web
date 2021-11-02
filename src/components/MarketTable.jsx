@@ -1,64 +1,55 @@
+import styled from "styled-components";
+
 const MarketTable = ({ categories, content }) => {
   return (
-    <table
-      style={{
-        border: "1px solid black",
-        borderCollapse: "collapse",
-        textAlign: "center",
-        tableLayout: "fixed",
-        width: "100%",
-        minWidth: "490px",
-      }}
-    >
+    <TableContainer>
       <thead>
-        <tr style={{ backgroundColor: "#6002ee", color: "#FAFAFA" }}>
-          <th style={{ padding: "5px" }} colSpan={categories.length * 2 + 1}>
-            Market Prices
-          </th>
-        </tr>
+        <TitleRow>
+          <th colSpan={categories.length * 2 + 1}>Market Prices</th>
+        </TitleRow>
         <tr>
-          <th
-            style={{
-              border: "1px solid black",
-            }}
-            rowspan="2"
-          >
-            Market
-          </th>
+          <th rowspan="2">Market</th>
           {categories.map((category) => (
-            <th style={{ border: "1px solid black" }} colspan="2">
-              {category}($)
-            </th>
+            <th colspan="2">{category}($)</th>
           ))}
         </tr>
-        <tr
-          style={{
-            border: "1px solid black",
-          }}
-        >
-          {categories.map(() => [
-            <th style={{ border: "1px solid black" }}>Buy</th>,
-            <th style={{ border: "1px solid black" }}>Sell</th>,
-          ])}
-        </tr>
+        <tr>{categories.map(() => [<th>Buy</th>, <th>Sell</th>])}</tr>
       </thead>
       <tbody>
         {content.map((rowData) => (
-          <tr style={{ border: "1px solid black" }}>
+          <tr>
             {rowData.map((cellData) => (
-              <td
-                style={{
-                  border: "1px solid black",
-                  padding: "10px",
-                }}
-              >
-                {cellData}
-              </td>
+              <td>{cellData}</td>
             ))}
           </tr>
         ))}
       </tbody>
-    </table>
+    </TableContainer>
   );
 };
 export default MarketTable;
+
+const TableContainer = styled.table({
+  border: "1px solid black",
+  borderCollapse: "collapse",
+  textAlign: "center",
+  tableLayout: "fixed",
+  width: "100%",
+  minWidth: "490px",
+
+  tr: {
+    border: "1px solid black",
+  },
+  th: {
+    border: "1px solid black",
+  },
+  td: {
+    border: "1px solid black",
+    padding: "10px",
+  },
+});
+const TitleRow = styled.tr({
+  backgroundColor: "#6002ee",
+  color: "#FAFAFA",
+  th: { padding: "5px" },
+});

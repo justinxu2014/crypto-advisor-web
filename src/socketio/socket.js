@@ -18,11 +18,4 @@ socket.on("disconnect", () => {
   console.log("disconnected: ", socket.io);
 });
 
-// socket.on("update:binance", (data) => {
-//   if (data.symbol == "ETHBUSD") {
-//     binanceETHBuyPrice = data.buyPrice;
-//     binanceETHSellPrice = data.sellPrice;
-//   }
-// });
-
 export { socket, connectSocket };

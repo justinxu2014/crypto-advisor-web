@@ -1,40 +1,53 @@
+import styled from "styled-components";
+
 const RecTable = ({ content }) => {
   return (
-    <table
-      style={{
-        border: "1px solid black",
-        borderCollapse: "collapse",
-        textAlign: "center",
-        tableLayout: "fixed",
-        minWidth: "240px",
-        width: "100%",
-      }}
-    >
+    <TableContainer>
       <thead>
-        <tr style={{ backgroundColor: "#6002ee", color: "#FAFAFA" }}>
-          <th style={{ padding: "5px" }} colSpan="3">
-            Recommendations
-          </th>
-        </tr>
-        <tr style={{}}>
-          <th style={{ border: "1px solid black" }}>Symbol</th>
-          <th style={{ border: "1px solid black" }}>Buy</th>
-          <th style={{ border: "1px solid black" }}>Sell</th>
+        <TitleRow>
+          <th colSpan="3">Recommendations</th>
+        </TitleRow>
+        <tr>
+          <th>Symbol</th>
+          <th>Buy</th>
+          <th>Sell</th>
         </tr>
       </thead>
       <tbody>
         {content.map((rowData) => (
-          <tr style={{ border: "1px solid black" }}>
+          <tr>
             {rowData.map((cellData) => (
-              <td style={{ border: "1px solid black", padding: "10px" }}>
-                {" "}
-                {cellData}{" "}
-              </td>
+              <td> {cellData} </td>
             ))}
           </tr>
         ))}
       </tbody>
-    </table>
+    </TableContainer>
   );
 };
 export default RecTable;
+
+const TableContainer = styled.table({
+  border: "1px solid black",
+  borderCollapse: "collapse",
+  textAlign: "center",
+  tableLayout: "fixed",
+  minWidth: "240px",
+  width: "100%",
+
+  tr: {
+    border: "1px solid black",
+  },
+  th: {
+    border: "1px solid black",
+  },
+  td: {
+    border: "1px solid black",
+    padding: "10px",
+  },
+});
+const TitleRow = styled.tr({
+  backgroundColor: "#6002ee",
+  color: "#FAFAFA",
+  th: { padding: "5px" },
+});
