@@ -1,53 +1,44 @@
-import styled from "styled-components";
+import TableRow from "./TableRow";
 
 const RecTable = ({ content }) => {
   return (
-    <TableContainer>
-      <thead>
-        <TitleRow>
-          <th colSpan="3">Recommendations</th>
-        </TitleRow>
-        <tr>
-          <th>Symbol</th>
-          <th>Buy</th>
-          <th>Sell</th>
-        </tr>
-      </thead>
-      <tbody>
-        {content.map((rowData) => (
-          <tr>
-            {rowData.map((cellData) => (
-              <td> {cellData} </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </TableContainer>
+    <div className="w-full">
+      <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div className="shadow overflow-hidden border-b border-gray-300 sm:rounded-lg">
+            <table className="table-fixed w-full min-w-310px divide-y divide-gray-300">
+              <thead className="bg-gray-200">
+                <tr>
+                  <th
+                    scope="col"
+                    className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Symbol
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Buy
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    Sell
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {content.map((rowData) => (
+                  <TableRow content={rowData} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 export default RecTable;
-
-const TableContainer = styled.table({
-  border: "1px solid black",
-  borderCollapse: "collapse",
-  textAlign: "center",
-  tableLayout: "fixed",
-  minWidth: "240px",
-  width: "100%",
-
-  tr: {
-    border: "1px solid black",
-  },
-  th: {
-    border: "1px solid black",
-  },
-  td: {
-    border: "1px solid black",
-    padding: "10px",
-  },
-});
-const TitleRow = styled.tr({
-  backgroundColor: "#6002ee",
-  color: "#FAFAFA",
-  th: { padding: "5px" },
-});

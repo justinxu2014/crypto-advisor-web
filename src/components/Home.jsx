@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { socket } from "../socketio/socket";
 import MarketTable from "./MarketTable";
@@ -74,34 +73,17 @@ const Home = () => {
   }, []);
 
   return (
-    <HomeContainer>
-      <Title style={{ marginTop: "25px" }}>
-        <h1> Crypto Advisor</h1>
-      </Title>
-      <Section>
+    <div className="flex flex-col items-center h-screen">
+      <div className="mt-25px">
+        <h1 className="text-2xl my-5"> Crypto Advisor</h1>
+      </div>
+      <div className="flex justify-center w-80vw m-25px">
         <RecTable content={RecTableContent} />
-      </Section>
-      <Section>
+      </div>
+      <div className="flex justify-center w-80vw m-25px">
         <MarketTable categories={tableCategories} content={tableContent} />
-      </Section>
-    </HomeContainer>
+      </div>
+    </div>
   );
 };
 export default Home;
-
-const HomeContainer = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  padding: "0px 25px 0px 25px",
-  height: "100vh",
-});
-const Title = styled.div({
-  marginTop: "25px",
-});
-const Section = styled.div({
-  display: "flex",
-  justifyContent: "center",
-  width: "80vw",
-  margin: "25px",
-});
