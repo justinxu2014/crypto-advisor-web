@@ -11,14 +11,15 @@ A react application that uses real-time market data from binance and coinbase to
 
 ## Deployment Guide:
 
-1. Create production build using `yarn build` CLI command.
-2. Deployment:
-   1. Local Deployment: Serve production build locally using `yarn serve` CLI command.
-   2. Hosting Service Deployment:
-      1. Connect repository to hosting service.
-      2. Set build command to `yarn build`
-      3. Set publish directory to `build`
-      4. Deploy Application
+1. Install dependencies using `yarn` CLI command.
+2. Create production build using `yarn build` CLI command.
+3. Deployment:
+   - Local Deployment: Serve production build locally using `yarn serve` CLI command.
+   - Hosting Service Deployment:
+     1. Connect repository to hosting service.
+     2. Set build command to `yarn build`
+     3. Set publish directory to `build`
+     4. Deploy Application
 
 ## Repository Breakdown
 
