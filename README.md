@@ -36,7 +36,11 @@ A react application that uses real-time market data from binance and coinbase to
   - `MarketTable.js`\
     Table component for displaying market prices.
   - `RecTable.js`\
-    Table component for displaying buying/selling recommendations.
+     Table component for displaying buying/selling recommendations.
+  - `TableRowHeader.js`\
+     Table Header component for Table rows.
+  - `TableRow.js`\
+    Table row component for MarketTable and RecTable.
 
 - `/socketio`
 

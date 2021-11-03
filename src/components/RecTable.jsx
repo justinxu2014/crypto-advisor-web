@@ -1,5 +1,5 @@
 import TableRow from "./TableRow";
-import TableHeader from "./TableHeader";
+import TableHeader from "./TableRowHeader";
 
 const RecTable = ({ content }) => {
   return (
