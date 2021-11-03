@@ -1,4 +1,5 @@
 import TableRow from "./TableRow";
+import TableHeader from "./TableHeader";
 
 const RecTable = ({ content }) => {
   return (
@@ -9,24 +10,9 @@ const RecTable = ({ content }) => {
             <table className="table-fixed w-full min-w-310px divide-y divide-gray-300">
               <thead className="bg-gray-200">
                 <tr>
-                  <th
-                    scope="col"
-                    className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Symbol
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Buy
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Sell
-                  </th>
+                  <TableHeader ypadding={true}>Symbol</TableHeader>
+                  <TableHeader ypadding={true}>Buy</TableHeader>
+                  <TableHeader ypadding={true}>Sell</TableHeader>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">

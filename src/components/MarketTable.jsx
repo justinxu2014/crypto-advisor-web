@@ -1,4 +1,5 @@
 import TableRow from "./TableRow";
+import TableHeader from "./TableHeader";
 
 const MarketTable = ({ categories, content }) => {
   return (
@@ -9,31 +10,15 @@ const MarketTable = ({ categories, content }) => {
             <table className="table-fixed w-full min-w-310px divide-y divide-gray-300">
               <thead className="bg-gray-200">
                 <tr>
-                  <th
-                    scope="col"
-                    rowspan="2"
-                    className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Market
-                  </th>
+                  <TableHeader rowSpan="2">Market</TableHeader>
                   {categories.map((category) => (
-                    <th
-                      colSpan="2"
-                      scope="col"
-                      className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"
-                    >
-                      {category}
-                    </th>
+                    <TableHeader colSpan="2">{category}</TableHeader>
                   ))}
                 </tr>
                 <tr>
                   {categories.map(() => [
-                    <th className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Buy
-                    </th>,
-                    <th className="px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Sell
-                    </th>,
+                    <TableHeader>Buy</TableHeader>,
+                    <TableHeader>Sell</TableHeader>,
                   ])}
                 </tr>
               </thead>
