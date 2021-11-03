@@ -12,19 +12,21 @@ const MarketTable = ({ categories, content }) => {
                 <tr>
                   <TableHeader rowSpan="2">Market</TableHeader>
                   {categories.map((category) => (
-                    <TableHeader colSpan="2">{category}</TableHeader>
+                    <TableHeader key={category} colSpan="2">
+                      {category}
+                    </TableHeader>
                   ))}
                 </tr>
                 <tr>
                   {categories.map(() => [
-                    <TableHeader>Buy</TableHeader>,
-                    <TableHeader>Sell</TableHeader>,
+                    <TableHeader key="Buy">Buy</TableHeader>,
+                    <TableHeader key="Sell">Sell</TableHeader>,
                   ])}
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-300">
                 {content.map((rowData) => (
-                  <TableRow content={rowData} />
+                  <TableRow key={rowData.name} content={rowData} />
                 ))}
               </tbody>
             </table>

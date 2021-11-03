@@ -17,7 +17,7 @@ const RecTable = ({ content }) => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {content.map((rowData) => (
-                  <TableRow content={rowData} />
+                  <TableRow key={rowData.name} content={rowData} />
                 ))}
               </tbody>
             </table>

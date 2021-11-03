@@ -14,34 +14,65 @@ const Home = () => {
   const [coinbaseBTCSellPrice, setCoinbaseBTCSellPrice] = useState(0);
 
   const tableCategories = ["BTC", "ETH"];
-  const tableContent = [
-    [
-      "Binance",
-      binanceBTCBuyPrice,
-      binanceBTCSellPrice,
-      binanceETHBuyPrice,
-      binanceETHSellPrice,
-    ],
 
-    [
-      "Coinbase",
-      coinbaseBTCBuyPrice,
-      coinbaseBTCSellPrice,
-      coinbaseETHBuyPrice,
-      coinbaseETHSellPrice,
-    ],
+  // Dataset for Market Table.
+  const tableContent = [
+    {
+      name: "Binance",
+      content: [
+        { id: "binanceBTCBuy", data: binanceBTCBuyPrice },
+        { id: "binanceBTCSell", data: binanceBTCSellPrice },
+        { id: "binanceETHBuy", data: binanceETHBuyPrice },
+        { id: "binanceETHSell", data: binanceETHSellPrice },
+      ],
+    },
+
+    {
+      name: "Coinbase",
+      content: [
+        { id: "coinbaseBTCBuy", data: coinbaseBTCBuyPrice },
+        { id: "coinbaseBTCSell", data: coinbaseBTCSellPrice },
+        { id: "coinbaseETHBuy", data: coinbaseETHBuyPrice },
+        { id: "coinbaseETHSell", data: coinbaseETHSellPrice },
+      ],
+    },
   ];
+  // Dataset for recommendations table.
   const RecTableContent = [
-    [
-      "BTC",
-      binanceBTCBuyPrice <= coinbaseBTCBuyPrice ? "Binance" : "Coinbase",
-      binanceBTCSellPrice >= coinbaseBTCSellPrice ? "Binance" : "Coinbase",
-    ],
-    [
-      "ETH",
-      binanceETHBuyPrice <= coinbaseETHBuyPrice ? "Binance" : "Coinbase",
-      binanceETHSellPrice >= coinbaseETHSellPrice ? "Binance" : "Coinbase",
-    ],
+    {
+      name: "BTC",
+      content: [
+        {
+          id: "BTCBuyRec",
+          data:
+            binanceBTCBuyPrice <= coinbaseBTCBuyPrice ? "Binance" : "Coinbase",
+        },
+        {
+          id: "BTCSellRec",
+          data:
+            binanceBTCSellPrice >= coinbaseBTCSellPrice
+              ? "Binance"
+              : "Coinbase",
+        },
+      ],
+    },
+    {
+      name: "ETH",
+      content: [
+        {
+          id: "ETHBuyRec",
+          data:
+            binanceETHBuyPrice <= coinbaseETHBuyPrice ? "Binance" : "Coinbase",
+        },
+        {
+          id: "ETHSellRec",
+          data:
+            binanceETHSellPrice >= coinbaseETHSellPrice
+              ? "Binance"
+              : "Coinbase",
+        },
+      ],
+    },
   ];
 
   const initBinanceHandler = () => {
